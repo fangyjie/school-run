@@ -1,0 +1,193 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      // uni-ui 规则如下配置
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationStyle": "custom", // 隐藏默认导航
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/order/order",
+      "style": {
+        "navigationBarTitleText": "订单"
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/event/pickup/pickup",
+      "style": {
+        "navigationBarTitleText": "快递代取"
+      }
+    },
+    {
+      "path": "pages/event/send/send",
+      "style": {
+        "navigationBarTitleText": "快递代寄"
+      }
+    },
+    {
+      "path": "pages/event/run/run",
+      "style": {
+        "navigationBarTitleText": "校园跑腿"
+      }
+    },
+    {
+      "path": "pages/event/other/other",
+      "style": {
+        "navigationBarTitleText": "其他帮助"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/register/register",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#00b16c",
+    "backgroundColor": "#c7edcc",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/selectHome.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "static/tabs/order.png",
+        "selectedIconPath": "static/tabs/selectOrder.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/tabs/mine.png",
+        "selectedIconPath": "static/tabs/selectMine.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pagesMember",
+      "pages": [
+        {
+          "path": "profile/profile",
+          "style": {
+            "navigationBarTitleText": "个人信息"
+          }
+        },
+        {
+          "path": "settings/settings",
+          "style": {
+            "navigationBarTitleText": "设置"
+          }
+        },
+        {
+          "path": "address/address",
+          "style": {
+            "navigationBarTitleText": "我的地址"
+          }
+        },
+        {
+          "path": "about/about",
+          "style": {
+            "navigationBarTitleText": "关于我们"
+          }
+        },
+        {
+          "path": "contact/contact",
+          "style": {
+            "navigationBarTitleText": "联系我们"
+          }
+        },
+        {
+          "path": "address-form/address-form",
+          "style": {
+            "navigationBarTitleText": "新建地址"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesFunc",
+      "pages": [
+        {
+          "path": "new/new",
+          "style": {
+            "navigationBarTitleText": "邀请新人"
+          }
+        },
+        {
+          "path": "credit/credit",
+          "style": {
+            "navigationBarTitleText": "信用分"
+          }
+        },
+        {
+          "path": "identify/identify",
+          "style": {
+            "navigationBarTitleText": "身份认证"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesOrder",
+      "pages": [
+        {
+          "path": "detail/detail",
+          "style": {
+            "navigationBarTitleText": "详情"
+          }
+        },
+        {
+          "path": "pickupInfo/pickupInfo",
+          "style": {
+            "navigationBarTitleText": "订单信息"
+          }
+        }
+      ]
+    }
+  ],
+  // 分包预下载规则
+  "preloadRule": {
+    "pages/mine/mine": {
+      "network": "all",
+      "packages": ["pagesMember", "pagesFunc"]
+    },
+    "pages/order/order": {
+      "network": "all",
+      "packages": ["pagesOrder"]
+    }
+  }
+}
